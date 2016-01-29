@@ -1,3 +1,9 @@
+---
+services: hdinsight
+platforms: java
+author: blackmist
+---
+
 # hdinsight-java-storm-wordcount
 A basic example of a Java-based Apache Storm Topology that can be used with Storm on HDInsight.
 
