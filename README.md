@@ -4,7 +4,8 @@ platforms: java
 author: blackmist
 ---
 
-# hdinsight-java-storm-wordcount
+# Java-based word count topology
+
 A basic example of a Java-based Apache Storm Topology that can be used with Storm on HDInsight.
 
 See [Develop a Java topology for Storm on HDInsight](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-develop-java-topology) for a walkthrough of the steps used to create this project.
@@ -52,3 +53,7 @@ Use one of the following links to learn how to deploy the jar file to a Storm on
 * [Deploy a Storm topology to a Linux-based HDInsight cluster](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-deploy-monitor-topology-linux/)
 
 * [Deploy a Storm topology to a Windows-based HDInsight cluster](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-deploy-monitor-topology/)
+
+## Project code of conduct
+
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
