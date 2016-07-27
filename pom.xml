@@ -11,7 +11,10 @@
     <dependency>
       <groupId>org.apache.storm</groupId>
       <artifactId>storm-core</artifactId>
-      <version>0.9.2-incubating</version>
+      <!-- Storm 0.10.0 is for HDInsight 3.3 and 3.4.
+           To find the version information for earlier HDInsight cluster
+           versions, see https://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/ -->
+      <version>0.10.0</version>
       <!-- keep storm out of the jar-with-dependencies -->
       <scope>provided</scope>
     </dependency>
@@ -47,5 +50,16 @@
         </configuration>
       </plugin>
     </plugins>
-</build>
+    <resources>
+        <!-- Include configuration for Log4j
+             to reduce the clutter in log output -->
+        <resource>
+            <directory>${basedir}/resources</directory>
+            <filtering>false</filtering>
+            <includes>
+                <include>log4j2.xml</include>
+            </includes>
+        </resource>
+    </resources>
+  </build>
 </project>

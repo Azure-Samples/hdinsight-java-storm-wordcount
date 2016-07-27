@@ -10,6 +10,8 @@ A basic example of a Java-based Apache Storm Topology that can be used with Stor
 
 See [Develop a Java topology for Storm on HDInsight](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-develop-java-topology) for a walkthrough of the steps used to create this project.
 
+NOTE: This project assumes Storm 0.10.0, which is available with Storm on HDInsight cluster versions 3.3 and 3.4.
+
 ##To run on your development environment
 
 1. Fork/Clone the repository to your development environment.
@@ -24,19 +26,21 @@ See [Develop a Java topology for Storm on HDInsight](https://azure.microsoft.com
 
 	As it runs, the topology will display startup information. Then it begins to display lines similar to the following as sentences are emitted from the spout and processed by the bolts.
 
-		15398 [Thread-16-split] INFO  backtype.storm.daemon.executor - Processing received message source: spout:10, stream: default, id: {}, [an apple a day keeps thedoctor away]]
-		15398 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [an]
-		15399 [Thread-10-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id: {}, [an]
-		15399 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [apple]
-		15400 [Thread-8-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id: {}, [apple]
-		15400 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [a]
-		15399 [Thread-10-count] INFO  backtype.storm.daemon.task - Emitting: count default [an, 53]
-		15400 [Thread-12-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id: {}, [a]
-		15400 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [day]
-		15400 [Thread-8-count] INFO  backtype.storm.daemon.task - Emitting: count default [apple, 53]
-		15401 [Thread-10-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id: {}, [day]
-		15401 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [keeps]
-		15401 [Thread-12-count] INFO  backtype.storm.daemon.task - Emitting: count default [a, 53]
+        17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word snow
+        17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word white
+        17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 112 for word seven
+        17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 195 for word the
+        17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word and
+        17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
+        17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word snow
+        17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word white
+        17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word seven
+        17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word i
+        17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word at
+        17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word with
+        17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word nature
+        17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word two
+        17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word am
 
 ##To package and deploy to HDInsight
 
