@@ -30,7 +30,9 @@ public class WordCountTopology {
 
     //new configuration
     Config conf = new Config();
-    conf.setDebug(true);
+    //Set to false to disable debug information when
+    // running in production on a cluster
+    conf.setDebug(false);
 
     //If there are arguments, we are running on a cluster
     if (args != null && args.length > 0) {
