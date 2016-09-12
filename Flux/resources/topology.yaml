@@ -1,0 +1,80 @@
+# topology definition
+
+# name to be used when submitting. This is what shows up...
+# in the Storm UI/storm command-line tool as the topology name
+# when submitted to Storm
+name: "wordcount"
+
+# Topology configuration
+config:
+  # Hint for the number of workers to create
+  topology.workers: 1
+
+# Components - constructors, property setters, and builder arguments.
+# Currently, components must be declared in the order they are referenced
+# components:
+#   - id: "stringScheme"
+#     className: "storm.kafka.StringScheme"
+
+#   - id: "stringMultiScheme"
+#     className: "backtype.storm.spout.SchemeAsMultiScheme"
+#     constructorArgs:
+#       - ref: "stringScheme"
+
+#   - id: "zkHosts"
+#     className: "storm.kafka.ZkHosts"
+#     constructorArgs:
+#       - "${ENV-ZKHOSTS}"
+
+#   - id: "spoutConfig"
+#     className: "storm.kafka.SpoutConfig"
+#     constructorArgs:
+#       # brokerHosts
+#       - ref: "zkHosts"
+#       # topic
+#       - "${ENV-KAFKATOPIC}"
+#       # zkRoot
+#       - ""
+#       # id
+#       - "readerid"
+#     properties:
+#       - name: "scheme"
+#         ref: "stringMultiScheme"
+
+# Spout definitions
+spouts:
+  - id: "sentence-spout"
+    className: "com.microsoft.example.RandomSentenceSpout"
+    # parallelism hint
+    parallelism: 1
+
+# Bolt definitions
+bolts:
+  - id: "splitter-bolt"
+    className: "com.microsoft.example.SplitSentence"
+    parallelism: 1
+
+  - id: "counter-bolt"
+    className: "com.microsoft.example.WordCount"
+    constructorArgs:
+      - 10
+    parallelism: 1
+
+# Stream definitions
+streams:
+  - name: "Spout --> Splitter" # name isn't used (placeholder for logging, UI, etc.)
+    # The stream emitter
+    from: "sentence-spout"
+    # The stream consumer
+    to: "splitter-bolt"
+    # Grouping type
+    grouping:
+      type: SHUFFLE
+
+  - name: "Splitter -> Counter"
+    from: "splitter-bolt"
+    to: "counter-bolt"
+    grouping:
+      type: FIELDS
+      # field(s) to group on
+      args: ["word"]
