@@ -8,9 +8,9 @@ author: blackmist
 
 A basic example of a Java-based Apache Storm Topology that can be used with Storm on HDInsight. This project demonstrates two ways of defining a Java-based Storm topology; one defines the topology programatically in Java, while the other defines the topology using [Flux](https://storm.apache.org/releases/0.10.0/flux.html).
 
-The primary difference between the two projects is that defining a topology using Flux separates configuration from implementation. With Flux, the topology (including configuration parameters,) are defined in a YAML file. This allows you to easily change the configuration before submission without recompiling the project.
+The primary difference between the two projects is that defining a topology using Flux separates configuration from implementation. With Flux, the topology (including configuration parameters,) are defined in a YAML file that is provided when you start the topology. This allows you to easily change the configuration without having to recompile the project.
 
-NOTE: Flux is the recommended approach to developing Storm topologies with Storm 0.10.x, which is included with Storm on HDInsight 3.3 and 3.4. If you are using an older version of Storm on HDinsight, you cannot use Flux and should instead use the project in the `Java` directory.
+NOTE: Flux is available with Storm 0.10.x, which is included with Storm on HDInsight 3.3 and 3.4. If you are using an older version of Storm on HDinsight, you cannot use Flux and should instead use the project in the `Java` directory.
 
 See [Develop a Java topology for Storm on HDInsight](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-develop-java-topology) for a walkthrough of the steps used to create this project.
 

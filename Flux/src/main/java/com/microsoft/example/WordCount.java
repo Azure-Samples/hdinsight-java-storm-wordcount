@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Iterator;
 
-
 import backtype.storm.Constants;
 import backtype.storm.topology.BasicOutputCollector;
 import backtype.storm.topology.OutputFieldsDeclarer;
@@ -38,6 +37,8 @@ public class WordCount extends BaseBasicBolt {
   }
 
   //Configure frequency of tick tuples for this bolt
+  //This delivers a 'tick' tuple on a specific interval,
+  //which is used to trigger certain actions
   @Override
   public Map<String, Object> getComponentConfiguration() {
       Config conf = new Config();
@@ -48,6 +49,7 @@ public class WordCount extends BaseBasicBolt {
   //execute is called to process tuples
   @Override
   public void execute(Tuple tuple, BasicOutputCollector collector) {
+    //If it's a tick tuple, emit all words and counts
     if(tuple.getSourceComponent().equals(Constants.SYSTEM_COMPONENT_ID)
             && tuple.getSourceStreamId().equals(Constants.SYSTEM_TICK_STREAM_ID)) {
       for(String word : counts.keySet()) {

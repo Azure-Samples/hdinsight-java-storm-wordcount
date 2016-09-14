@@ -7,14 +7,20 @@
   <version>1.0-SNAPSHOT</version>
   <name>WordCount</name>
   <url>http://maven.apache.org</url>
+  <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!--
+        Storm 0.10.0 is for HDInsight 3.3 and 3.4.
+        To find the version information for earlier HDInsight cluster
+        versions, see https://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/
+        -->
+        <storm.version>0.10.0</storm.version>
+    </properties>
   <dependencies>
     <dependency>
       <groupId>org.apache.storm</groupId>
       <artifactId>storm-core</artifactId>
-      <!-- Storm 0.10.0 is for HDInsight 3.3 and 3.4.
-           To find the version information for earlier HDInsight cluster
-           versions, see https://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/ -->
-      <version>0.10.0</version>
+      <version>${storm.version}</version>
       <!-- keep storm out of the jar-with-dependencies -->
       <scope>provided</scope>
     </dependency>

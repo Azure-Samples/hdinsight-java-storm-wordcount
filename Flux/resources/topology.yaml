@@ -10,37 +10,6 @@ config:
   # Hint for the number of workers to create
   topology.workers: 1
 
-# Components - constructors, property setters, and builder arguments.
-# Currently, components must be declared in the order they are referenced
-# components:
-#   - id: "stringScheme"
-#     className: "storm.kafka.StringScheme"
-
-#   - id: "stringMultiScheme"
-#     className: "backtype.storm.spout.SchemeAsMultiScheme"
-#     constructorArgs:
-#       - ref: "stringScheme"
-
-#   - id: "zkHosts"
-#     className: "storm.kafka.ZkHosts"
-#     constructorArgs:
-#       - "${ENV-ZKHOSTS}"
-
-#   - id: "spoutConfig"
-#     className: "storm.kafka.SpoutConfig"
-#     constructorArgs:
-#       # brokerHosts
-#       - ref: "zkHosts"
-#       # topic
-#       - "${ENV-KAFKATOPIC}"
-#       # zkRoot
-#       - ""
-#       # id
-#       - "readerid"
-#     properties:
-#       - name: "scheme"
-#         ref: "stringMultiScheme"
-
 # Spout definitions
 spouts:
   - id: "sentence-spout"
