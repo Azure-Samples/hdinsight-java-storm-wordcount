@@ -6,7 +6,7 @@ author: blackmist
 
 # Java-based word count topology
 
-A basic example of a Java-based Apache Storm Topology that can be used with Storm on HDInsight. This project demonstrates two ways of defining a Java-based Storm topology; one defines the topology programatically in Java, while the other defines the topology using [Flux](https://storm.apache.org/releases/0.10.0/flux.html).
+A basic example of a Java-based Apache Storm Topology that can be used with Storm on HDInsight. This project demonstrates two ways of defining a Java-based Storm topology; one defines the topology programatically in Java, while the other defines the topology using [Flux](https://storm.apache.org/releases/1.0.1/flux.html).
 
 The primary difference between the two projects is that defining a topology using Flux separates configuration from implementation. With Flux, the topology (including configuration parameters,) are defined in a YAML file that is provided when you start the topology. This allows you to easily change the configuration without having to recompile the project.
 
@@ -14,7 +14,7 @@ NOTE: Flux is available with Storm 0.10.x, which is included with Storm on HDIns
 
 See [Develop a Java topology for Storm on HDInsight](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-develop-java-topology) for a walkthrough of the steps used to create this project.
 
-NOTE: This project assumes Storm 0.10.0, which is available with Storm on HDInsight cluster versions 3.3 and 3.4.
+NOTE: This project assumes Storm 1.0.1, which is available with Storm on HDInsight cluster version 3.5.
 
 ## Flux topology
 
