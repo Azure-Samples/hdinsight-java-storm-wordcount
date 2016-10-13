@@ -10,11 +10,11 @@
   <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!--
-        Storm 0.10.0 is for HDInsight 3.3 and 3.4.
+        Storm 1.0.1 is for HDInsight 3.5.
         To find the version information for earlier HDInsight cluster
         versions, see https://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/
         -->
-        <storm.version>0.10.0</storm.version>
+        <storm.version>1.0.1</storm.version>
     </properties>
   <dependencies>
     <dependency>
@@ -51,8 +51,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.3</version>
         <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
+          <source>1.8</source>
+          <target>1.8</target>
         </configuration>
       </plugin>
     </plugins>
