@@ -77,10 +77,11 @@
                 </executions>
             </plugin>
             <!-- This allows us to use `mvn exec:java` to run the topology in development -->
+            <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>1.4.0</version>
+                <version>1.5.0</version>
                 <executions>
                     <execution>
                     <goals>
