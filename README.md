@@ -6,7 +6,7 @@ author: blackmist
 
 # Java-based word count topology
 
-A basic example of a Java-based Apache Storm Topology that can be used with Storm on HDInsight. This project demonstrates two ways of defining a Java-based Storm topology; one defines the topology programatically in Java, while the other defines the topology using [Flux](https://storm.apache.org/releases/0.10.0/flux.html).
+A basic example of a Java-based Apache Storm Topology that can be used with Storm on HDInsight. This project demonstrates two ways of defining a Java-based Storm topology; one defines the topology programatically in Java, while the other defines the topology using [Flux](https://storm.apache.org/releases/1.0.1/flux.html).
 
 The primary difference between the two projects is that defining a topology using Flux separates configuration from implementation. With Flux, the topology (including configuration parameters,) are defined in a YAML file that is provided when you start the topology. This allows you to easily change the configuration without having to recompile the project.
 
@@ -14,7 +14,7 @@ NOTE: Flux is available with Storm 0.10.x, which is included with Storm on HDIns
 
 See [Develop a Java topology for Storm on HDInsight](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-develop-java-topology) for a walkthrough of the steps used to create this project.
 
-NOTE: This project assumes Storm 0.10.0, which is available with Storm on HDInsight cluster versions 3.3 and 3.4.
+NOTE: This project assumes Storm 1.0.1, which is available with Storm on HDInsight cluster version 3.5.
 
 ## Flux topology
 
@@ -26,17 +26,12 @@ NOTE: This project assumes Storm 0.10.0, which is available with Storm on HDInsi
 
 3. Install [Maven](http://maven.apache.org/).
 
-4. Assuming Java and Maven are both in the path, and everything is configured fine for JAVA_HOME, use the following to build and run the topology on the development environment:
-
-        mvn compile exec:java -Dexec.args="--local -R /topology.yaml"
-
-    If you are using PowerShell, use the following:
-    
-        mvn compile exec:java "-Dexec.args=--local -R /topology.yaml"
-
-    NOTE: If you are on a Linux/Unix/OS X system, and have [installed Storm in your development environment](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), you can use the following commands instead:
+4. Assuming Java and Maven are both in the path, and everything is configured fine for JAVA_HOME, use the following to build the topology on the development environment:
 
         mvn compile package
+
+4. If you have [installed Storm in your development environment](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), you can use the following command to run the topology in local mode for testing:
+
         storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /topology.yaml
 
     The `--local` parameter runs the topology in local mode on your development environment. The `-R /topology.yaml` parameter uses the `topology.yaml` file resource from the jar file to define the topology.
@@ -60,11 +55,7 @@ NOTE: This project assumes Storm 0.10.0, which is available with Storm on HDInsi
             - 10
             parallelism: 1
 
-6. To run the topology, use the following command:
-
-        mvn exec:java -Dexec.args="--local /path/to/newtopology.yaml"
-
-    Or, if you have Storm on your Linux/Unix/OS X development environment:
+6. To run the topology in local mode, use the following command:
 
         storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local /path/to/newtopology.yaml
 

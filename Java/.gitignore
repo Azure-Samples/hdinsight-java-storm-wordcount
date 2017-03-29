@@ -7,3 +7,10 @@ release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
+.idea/
+*.log
+*.log.lck
+.classpath
+.settings/
+*.iml
+.project

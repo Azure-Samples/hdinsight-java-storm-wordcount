@@ -10,3 +10,7 @@ buildNumber.properties
 .idea/
 *.log
 *.log.lck
+.classpath
+.settings/
+*.iml
+.project
