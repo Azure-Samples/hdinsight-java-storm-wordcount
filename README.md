@@ -26,17 +26,12 @@ NOTE: This project assumes Storm 1.0.1, which is available with Storm on HDInsig
 
 3. Install [Maven](http://maven.apache.org/).
 
-4. Assuming Java and Maven are both in the path, and everything is configured fine for JAVA_HOME, use the following to build and run the topology on the development environment:
-
-        mvn compile exec:java -Dexec.args="--local -R /topology.yaml"
-
-    If you are using PowerShell, use the following:
-    
-        mvn compile exec:java "-Dexec.args=--local -R /topology.yaml"
-
-    NOTE: If you are on a Linux/Unix/OS X system, and have [installed Storm in your development environment](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), you can use the following commands instead:
+4. Assuming Java and Maven are both in the path, and everything is configured fine for JAVA_HOME, use the following to build the topology on the development environment:
 
         mvn compile package
+
+4. If you have [installed Storm in your development environment](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), you can use the following command to run the topology in local mode for testing:
+
         storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /topology.yaml
 
     The `--local` parameter runs the topology in local mode on your development environment. The `-R /topology.yaml` parameter uses the `topology.yaml` file resource from the jar file to define the topology.
@@ -60,11 +55,7 @@ NOTE: This project assumes Storm 1.0.1, which is available with Storm on HDInsig
             - 10
             parallelism: 1
 
-6. To run the topology, use the following command:
-
-        mvn exec:java -Dexec.args="--local /path/to/newtopology.yaml"
-
-    Or, if you have Storm on your Linux/Unix/OS X development environment:
+6. To run the topology in local mode, use the following command:
 
         storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local /path/to/newtopology.yaml
 
