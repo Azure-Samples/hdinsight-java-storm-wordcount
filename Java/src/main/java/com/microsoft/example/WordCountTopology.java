@@ -6,7 +6,7 @@ import org.apache.storm.StormSubmitter;
 import org.apache.storm.topology.TopologyBuilder;
 import org.apache.storm.tuple.Fields;
 
-import com.microsoft.example.RandomSentenceSpout;
+//import com.microsoft.example.RandomSentenceSpout;
 
 public class WordCountTopology {
 
