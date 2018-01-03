@@ -47,6 +47,16 @@ NOTE: This project assumes Storm 1.0.1, which is available with Storm on HDInsig
     
     There will be a 10 second delay between batches of logged information, as the WordCount component waits on a tick tuple before emitting, and the default timeout defined in the YAML file is 10 seconds.
 
+    **IMPORTANT!**
+
+    If you are using Storm on a Windows development machine, you may see errors similar to the following:
+
+    `2017-12-11 16:28:44,792 main ERROR Unable to create file C:\tools\apache-storm-1.1.1\logs/access-web-${sys:daemon.name}.log java.io.IOException: The filename, directory name, or volume label syntax is incorrect`
+
+    To work around this error, go to your local Storm development installation and edit the `log4j2\cluster.xml` file. Find the line that begins with `<RollingFile name="WEB-ACCESS"`, and remove the string `-${sys:daemon.name}` from the `fileName` property.
+
+    On Windows, if no output is generated to the console, you can find it stored in the `<storm installation directory>\logs\jar.log` file.
+
 5. Make a copy of the `topology.yaml` file from the project. Call it something like `newtopology.yaml`. In the file, find the following section and change the value of `10` to `5`. This changes the interval between emitting batches of word counts from 10 seconds to 5.
 
           - id: "counter-bolt"
